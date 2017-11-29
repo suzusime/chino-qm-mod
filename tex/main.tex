@@ -1,0 +1,66 @@
+% 文字コードは UTF-8
+\documentclass[b5paper,uplatex,9pt,ja=standard,textwidth-limit=60,enablejfam=true]{bxjsbook}% ドライバ指定は無し
+%\documentclass{jsarticle}
+
+%ファイル分割をいいかんじにする
+\usepackage{subfiles}
+
+%OTF
+\usepackage[uplatex,deluxe]{otf}
+%ルビ
+\usepackage{pxrubrica}
+\rubysetup{<cj>}
+
+%%%数式関連------------
+\usepackage{amstext,amsmath,amssymb}
+\usepackage{newpxtext,newpxmath}
+\let\openbox\relax %openboxが重複してしまうので
+\usepackage{amsthm}
+\usepackage{braket}
+\usepackage{bxascmac}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{jcolor}
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage{unicode-math}
+%\unimathsetup{math-style=ISO,bold-style=ISO}
+\usepackage{bm}%太字
+%\setmathfont{xits-math.otf}
+%\setmathfont{xits-math.otf}[range={cal,bfcal},StylisticSet=1]
+%%定理環境の設定
+\newtheoremstyle{definitionkaigyou}{\topsep}{\topsep}{\normalfont}{0pt}{\bfseries}{　}{ }{}
+\theoremstyle{definitionkaigyou}
+\newtheorem{pure.theorem}{定理}[section]
+\newtheorem{pure.definition}[pure.theorem]{定義}
+\newtheorem{pure.example}[pure.theorem]{例}
+\newtheorem{pure.proposition}[pure.theorem]{命題}
+\newtheorem{pure.assumption}[pure.theorem]{仮定}
+\newenvironment{th.}[1]{\color{blue}\begin{screen}\normalcolor\begin{pure.theorem}#1}{\end{pure.theorem}\end{screen}}
+\newenvironment{def.}[1]{\color{green}\begin{screen}\normalcolor\begin{pure.definition}#1}{\end{pure.definition}\end{screen}}
+\newenvironment{ex.}[1]{\color{yellowgreen}\begin{screen}\normalcolor\begin{pure.example}#1}{\end{pure.example}\end{screen}}
+\newenvironment{pro.}[1]{\color{redorrange}\begin{screen}\normalcolor\begin{pure.proposition}#1}{\end{pure.proposition}\end{screen}}
+	\newenvironment{as.}[1]{\color{salmon}\begin{screen}\normalcolor\begin{pure.assumption}#1}{\end{pure.assumption}\end{screen}}
+
+\newcommand{\NNat}{\bm{N}}%自然数
+\newcommand{\NRat}{\bm{Q}}%有理数
+\newcommand{\NRe}{\bm{R}}%実数
+\newcommand{\NCom}{\bm{C}}%複素数
+\newcommand{\defeq}{:=}%定義のイコール
+
+%定義のイコール
+\newcommand{\defeql}{:=}
+\newcommand{\defeqr}{=:}
+%偏微分の簡略記法
+\newcommand{\parderi}[2]{\frac{\partial #1}{\partial #2}}
+
+%%文書専用マクロ
+
+\title{テスト文書}
+\author{すずしめ}
+
+
+%%%% 文書本体開始 %%%%
+\begin{document}
+%% ここに読み込んでいく。
+\subfile{sample}
+\end{document}
