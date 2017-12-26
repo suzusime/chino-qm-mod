@@ -1,0 +1,50 @@
+%ファイル分割をいい感じにする
+\documentclass[_main]{subfiles}
+
+\begin{document}
+\section{現状の最新版（初版第2刷）で修正されていない問題}
+\subsection{エルミート演算子について}
+1.5節の定義1.5.2に於いて
+\begin{quote}
+物理量$\hat{a}$について、任意のケット$\ket{a}$に対し$(\hat{a}\ket{a}, \ket{a}) = (\ket{a},\hat{a}\ket{a})$が成り立つとき、$\hat{a}$はエルミートであるという。このとき、$\hat{a}$の固有値はすべて実数である。
+\end{quote}
+としていますが、ふつうの定義は
+\begin{quote}
+物理量$\hat{a}$について、任意のケット$\ket{a},\ket{b}$に対し$(\hat{a}\ket{a}, \ket{b}) = (\ket{a},\hat{a}\ket{b})$が成り立つとき、$\hat{a}$はエルミートであるという。このとき、$\hat{a}$の固有値はすべて実数である。
+\end{quote}
+というものです。一般的な定義とは異なるものを書いて混乱を招いてしまい申し訳ありません。
+
+ただし、この2つは同値になります。以下にその証明を付けておきます\footnote{この証明は石坂智ほか『量子情報科学入門』（共立出版）の命題A.3.4や並木ほか『量子力学II』〈新装版 現代物理学の基礎4〉（岩波書店）の271頁にあります。}。
+
+\begin{pro.}
+	物理量$\hat{a}$について、
+	\begin{enumerate}
+		\renewcommand{\labelenumi}{(\roman{enumi})}
+		\item 任意のケット$\ket{a}$に対し$(\hat{a}\ket{a}, \ket{a}) = (\ket{a},\hat{a}\ket{a})$
+		\item 任意のケット$\ket{a},\ket{b}$に対し$(\hat{a}\ket{a}, \ket{b}) = (\ket{a},\hat{a}\ket{b})$
+	\end{enumerate}
+	の2つは同値である。
+\end{pro.}
+\begin{proof}
+	(ii) $\Rightarrow$ (i) は明らかであるから、以下では(i) $\Rightarrow$ (ii)を示す。
+	
+	任意のケット$\ket{a},\ket{b}$に対し、$\ket{f_+} := \ket{b} + \ket{a}, \ket{f_-} := \ket{b} - \ket{a}, \ket{g_+} := \ket{b} + i\ket{a}, \ket{g_-} := \ket{b} - i\ket{a}$とおいた時、次の2つの恒等式が成り立つ（右辺に$\ket{f_+},\ket{f_-},\ket{g_+},\ket{g_-}$の表式を代入して展開すれば示せる。内積の第1項については係数を前に出すとき複素共軛をとることに注意）。
+
+	\[
+		(\hat{a}\ket{a}, \ket{b}) = \frac{1}{4} [ \  (\hat{a}\ket{f_+}, \ket{f_+}) - (\hat{a}\ket{f_-}, \ket{f_-}) + i(\hat{a}\ket{g_+}, \ket{g_+}) - i(\hat{a}\ket{g_-}, \ket{g_-})\ ]
+	\]
+	\[
+		(\ket{a}, \hat{a}\ket{b}) = \frac{1}{4} [ \  (\ket{f_+}, \hat{a}\ket{f_+}) - (\ket{f_-}, \hat{a}\ket{f_-}) + i(\ket{g_+}, \hat{a}\ket{g_+}) - i(\ket{g_-}, \hat{a}\ket{g_-})\ ]
+	\]
+
+	(i)を仮定すると、この2式の右辺は等しくなる。
+	故に、$(\hat{a}\ket{a}, \ket{b}) = (\ket{a}, \hat{a}\ket{b})$となる。
+
+\end{proof}
+
+\section{初版第2刷で修正された問題}
+\subsection{10頁（1.5節）の誤植}
+\paragraph{誤} うーんと。例えば命題1.4.5に使えば、$\braket{a_0|\hat{a}|a_0} = (\braket{a_0|\hat{a}|a_0}$で……複素共軛が内積の順序の入れ替えになるってことを使えば、$(\ket{a_0}, \hat{a}\ket{a_0}) = (\hat{a}\ket{a_0}, \ket{a_0}$と書けます…！
+
+\paragraph{正} うーんと。例えば命題1.4.5に使えば、$\braket{a_0|\hat{a}|a_0} = (\braket{a_0|\hat{a}|a_0})^\ast$で……複素共軛が内積の順序の入れ替えになるってことを使えば、$(\ket{a_0}, \hat{a}\ket{a_0}) = (\hat{a}\ket{a_0}, \ket{a_0})$と書けます…！
+\end{document}

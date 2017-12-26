@@ -1,5 +1,5 @@
 % 文字コードは UTF-8
-\documentclass[b5paper,uplatex,9pt,ja=standard,textwidth-limit=60,enablejfam=true]{bxjsbook}% ドライバ指定は無し
+\documentclass[b5paper,uplatex,9pt,ja=standard,textwidth-limit=60,enablejfam=true]{bxjsarticle}% ドライバ指定は無し
 %\documentclass{jsarticle}
 
 %ファイル分割をいいかんじにする
@@ -38,7 +38,7 @@
 \newenvironment{th.}[1]{\color{blue}\begin{screen}\normalcolor\begin{pure.theorem}#1}{\end{pure.theorem}\end{screen}}
 \newenvironment{def.}[1]{\color{green}\begin{screen}\normalcolor\begin{pure.definition}#1}{\end{pure.definition}\end{screen}}
 \newenvironment{ex.}[1]{\color{yellowgreen}\begin{screen}\normalcolor\begin{pure.example}#1}{\end{pure.example}\end{screen}}
-\newenvironment{pro.}[1]{\color{redorrange}\begin{screen}\normalcolor\begin{pure.proposition}#1}{\end{pure.proposition}\end{screen}}
+\newenvironment{pro.}[1]{\color{orange}\begin{screen}\normalcolor\begin{pure.proposition}#1}{\end{pure.proposition}\end{screen}}
 	\newenvironment{as.}[1]{\color{salmon}\begin{screen}\normalcolor\begin{pure.assumption}#1}{\end{pure.assumption}\end{screen}}
 
 \newcommand{\NNat}{\bm{N}}%自然数
@@ -55,12 +55,13 @@
 
 %%文書専用マクロ
 
-\title{テスト文書}
+\title{『香風智乃の量子力學ノート べーたばん』の補訂}
 \author{すずしめ}
 
 
 %%%% 文書本体開始 %%%%
 \begin{document}
 %% ここに読み込んでいく。
-\subfile{sample}
+\maketitle
+\subfile{1}
 \end{document}
